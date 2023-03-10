@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.3/jquery.js"></script>
+  </head>
+  <body>
+    <h1>hello express</h1>
+    <button onclick="getBtn()">GET</button>
+    <button onclick="postBtn()">POST</button>
+    <button onclick="deleteBtn()">DELETE</button>
+    <button onclick="jsonpBtn()">JSONP</button>
+
+    <script>
+      // 1、测试 GET 接口
+      function getBtn() {
+        $(function () {
+          $.ajax({
+            type: "GET",
+            url: "http://127.0.0.1/api/gets",
+            data: { name: "hm" },
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      }
+
+      // 2、测试 POST 接口
+      function postBtn() {
+        $(function () {
+          $.ajax({
+            type: "POST",
+            url: "http://127.0.0.1/api/posts",
+            data: { name: "hm", age: 90 },
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      }
+
+      // 3、删除
+      function deleteBtn() {
+        $(function () {
+          $.ajax({
+            type: "DELETE",
+            url: "http://127.0.0.1/api/delete",
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      }
+
+      // 4、JSONP 请求
+      function jsonpBtn() {
+        $(function () {
+          $.ajax({
+            type: "get",
+            url: "http://127.0.0.1/api/jsonp",
+            dataType: "jsonp", // 表示要发起jsonp请求
+            success: function (res) {
+              console.log(res);
+            },
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
