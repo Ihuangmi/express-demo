@@ -8,23 +8,39 @@ router.use(function (req, res, next) {
 });
 
 // 挂载路由
-router.get("/gets", function (req, res) {
+router.get("/", function (req, res) {
   res.send({
     status: 0,
     message: "请求成功",
-    data: req.query,
+    data: '你好',
   });
 });
 
-router.post("/posts", function (req, res) {
+// 登录
+router.post("/login", function (req, res) {
+  const { username, password } = req.body
+  // 验证账户密码
+  if (username !== 'admin' || password !== '123456') {
+    return res.send({
+      status: 1,
+      message: "失败",
+    });
+  }
+
+  // 将用户登录信息保存到 session   
+  req.session.user = req.body
+  req.session.islogin = true
+
   res.send({
     status: 0,
-    message: "请求成功",
-    data: req.body,
+    message: "登录成功",
+    data: req.body
   });
 });
 
-router.delete("/delete", function (req, res) {
+router.delete("/logout", function (req, res) {
+  // 清空 session
+  req.session.destroy()
   res.send({
     status: 0,
     message: "操作成功",

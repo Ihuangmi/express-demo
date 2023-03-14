@@ -1,5 +1,14 @@
 const express = require("express");
 const app = express();
+const session = require('express-session')
+
+
+// 配置 session 中间件
+app.use(session({
+  secret: 'ithe',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // 导入路由模块
 const router = require("./11.apiRouter");
