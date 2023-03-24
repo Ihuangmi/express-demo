@@ -20,7 +20,7 @@
         $(function () {
           $.ajax({
             type: "GET",
-            url: "http://127.0.0.1/api/gets",
+            url: "http://127.0.0.1/api/get",
             data: { name: "hm" },
             success: function (res) {
               console.log(res);
@@ -34,7 +34,7 @@
         $(function () {
           $.ajax({
             type: "POST",
-            url: "http://127.0.0.1/api/posts",
+            url: "http://127.0.0.1/api/post",
             data: { name: "hm", age: 90 },
             success: function (res) {
               console.log(res);

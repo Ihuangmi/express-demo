@@ -8,15 +8,16 @@ const parser = require("body-parser");
 // app.use(express.static("public"));
 
 /**
- * 解析json格式请求头数据
+ * 解析json格式请求体数据
  */
 app.use(express.json());
 
 /**
- * 解析 URL-encoded 格式的请求头数据
+ * 解析 URL-encoded 格式的请求体数据
  */
 // app.use(express.urlencoded({ extended: false }));
-app.use(parser.urlencoded({ extended: false }));
+// 同：
+// app.use(parser.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
   // 人为抛出一个错误

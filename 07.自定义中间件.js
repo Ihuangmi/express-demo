@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const qs = require("querystring");
 
-// 自定义一个解析表单的中间件
+// 自定义一个解析表单数据的中间件
 app.use(function (req, res, next) {
   console.log("这是中间件函数");
 
