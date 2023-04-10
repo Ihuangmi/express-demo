@@ -13,6 +13,7 @@ const path = require('path')
 // 但是，您提供给 express.static 函数的路径是相对于您启动 node 进程的目录的。如果您从另一个目录运行 express 应用程序，使用您要服务的目录的绝对路径会更安全：
 app.use('/static', express.static(path.join(__dirname, 'public')))
 
+
 app.listen(8080, () => {
   console.log("server running at http://127.0.0.1:8080");
 });
